@@ -15,6 +15,21 @@
 from webiopi.decorators.rest import request, response
 from webiopi.utils.types import M_JSON
 
+class BlinkMAPI():
+    def __family__(self):
+        return "BlinkMAPI"
+
+    def __getRGB__(self):
+        raise NotImplementedError
+
+    def __setRGB__(self):
+        raise NotImplementedError
+
+    @request("GET", "blinkm/1/rgb")
+    @response("%s")
+    def getRGB(self):
+        return "fu"
+
 class GPIOPort():
     IN  = 0
     OUT = 1
@@ -142,3 +157,4 @@ DRIVERS = {}
 DRIVERS["mcp23XXX"] = ["MCP23008", "MCP23009", "MCP23017", "MCP23018", "MCP23S08", "MCP23S09", "MCP23S17", "MCP23S18"]
 DRIVERS["pcf8574" ] = ["PCF8574", "PCF8574A"]
 DRIVERS["ds2408" ] = ["DS2408"]
+DRIVERS["blinkm"] = ["BlinkM"]
