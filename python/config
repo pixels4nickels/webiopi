@@ -80,6 +80,12 @@ multicast = true
 #temp3 = DS18B20 slave:28-0000049bc218
 
 #bmp = BMP085
+#blinkm = BlinkM
+blinkm0 = BlinkM slave:0x0a
+blinkm1 = BlinkM slave:0x0b
+blinkm2 = BlinkM slave:0x0c
+blinkm3 = BlinkM slave:0x0d
+blinkm4 = BlinkM slave:0x0e
 
 #gpio0 = PCF8574
 #gpio1 = PCF8574 slave:0x21
@@ -117,6 +123,24 @@ multicast = true
 #------------------------------------------------------------------------#
 
 [ROUTES]
+#/blinkm/rgb = /devices/blinkm/rgb
+#/blinkm/rgb/value = /devices/blinkm/rgb/value
+
+/blinkm/0/rgb = /devices/blinkm0/rgb
+/blinkm/0/rgb/value = /devices/blinkm0/rgb/value
+
+/blinkm/1/rgb = /devices/blinkm1/rgb
+/blinkm/1/rgb/value = /devices/blinkm1/rgb/value
+
+/blinkm/2/rgb = /devices/blinkm2/rgb
+/blinkm/2/rgb/value = /devices/blinkm2/rgb/value
+
+/blinkm/3/rgb = /devices/blinkm3/rgb
+/blinkm/3/rgb/value = /devices/blinkm3/rgb/value
+
+/blinkm/4/rgb = /devices/blinkm4/rgb
+/blinkm/4/rgb/value = /devices/blinkm4/rgb/value
+
 # Custom REST API route syntax :
 # source = destination
 #   source      : URL to route
@@ -131,6 +155,7 @@ multicast = true
 #  - GET  /bedroom/temperature => GET  /devices/temp2/temperature/c, returns the temperature in celsius
 #/bedroom/light = /GPIO/25/value
 #/bedroom/temperature = /devices/temp2/temperature/c
+
 
 #/livingroom/light = /devices/expander0/0
 #/livingroom/brightness = /devices/adc/0/float

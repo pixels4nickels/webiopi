@@ -15,21 +15,6 @@
 from webiopi.decorators.rest import request, response
 from webiopi.utils.types import M_JSON
 
-class BlinkMAPI():
-    def __family__(self):
-        return "BlinkMAPI"
-
-    def __getRGB__(self):
-        raise NotImplementedError
-
-    def __setRGB__(self):
-        raise NotImplementedError
-
-    @request("GET", "blinkm/1/rgb")
-    @response("%s")
-    def getRGB(self):
-        return "fu"
-
 class GPIOPort():
     IN  = 0
     OUT = 1
