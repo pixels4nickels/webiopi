@@ -18,14 +18,14 @@ class BlinkM(I2C):
         return "BlinkM"
 
     @request("GET", "rgb")
-    @response("%d-%d-%d")
+    @response("%d,%d,%d")
     def getRGB(self):
         I2C.writeRegister(self, self.slave, self.GET_CURRENT_RGB)
         r, g, b = I2C.readRegisters(self, self.slave, 3)
         return r, g, b
 
     @request("GET", "rgb/%(value)d")
-    @response("%d-%d-%d")
+    @response("%d,%d,%d")
     def setRGB(self, value):
         r = (value>>16) & 0xff
         g = (value>>8) & 0xff
